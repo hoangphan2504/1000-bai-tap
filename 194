@@ -1,0 +1,45 @@
+#include <iostream>
+using namespace std;
+void Nhapmang(int *a, int n)
+{
+    for(int i=0; i<n; i++)
+    {
+        cin >> a[i];
+    }
+}
+
+void LietKe(int *a, int n)
+{
+    int i, j;
+    int khoangcachmin = abs(a[0] - a[1]);
+    for(i = 0; i < n; i++)
+    {
+        for(j = i + 1; j < n ; j++)
+        {
+            if(abs((a[i] - a[j])) < khoangcachmin )
+            {
+                khoangcachmin = abs(a[i] - a[j]);
+            }
+        }
+    }
+
+    for(i = 0; i < n; i++)
+    {
+        for(j = i + 1; j < n ; j++)
+        {
+            if(abs((a[i] - a[j])) == khoangcachmin)
+            {
+               cout << a[i] << " " <<a[j];
+            }
+        }
+    }
+}
+int main()
+{
+    int n;
+    cin >> n;
+    int a[n];
+    Nhapmang(a,n);
+    LietKe(a,n);
+
+}
