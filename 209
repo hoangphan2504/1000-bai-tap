@@ -1,0 +1,52 @@
+/******************************************************************************
+
+                              Online C++ Compiler.
+               Code, Compile, Run and Debug C++ program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <iostream>
+#include<cmath>
+using namespace std;
+
+void Nhapmang(int *a, int n)
+{
+    for(int i=0; i<n; i++)
+    {
+        cin >> a[i];
+    }
+}
+bool kiemtrasodoixung(int a)
+{   
+    int temp=0, a_copy=a;
+    while(a_copy!=0)
+    {
+        temp=temp*10+(a_copy%10);
+        a_copy/=10;
+    }
+    if(temp==a)
+        return true;
+    return false;
+}
+int check(int *a, int n)
+{   
+    int tong=0;
+    for(int i=0; i<n; i++)
+    {
+        if(kiemtrasodoixung(a[i]))
+        {
+            tong+=a[i];
+        }
+    }
+    return tong;
+}
+int main()
+{
+    int n;
+    cin >> n;
+    int a[n];
+    Nhapmang(a,n);
+    cout << check(a,n);
+    
+}
