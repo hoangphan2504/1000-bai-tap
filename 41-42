@@ -1,0 +1,73 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+//bai 42
+/*int Tongk(int k)
+    {
+        int tong=0;
+        for(int i=1; i<=k; i++)
+        {
+            tong+=i;
+        }
+    }*/
+int main()
+{
+    //bai 40
+    /*float tong=0;
+    int n,x;
+    cin >> n >> x;
+    for(int i =1; i <= n; i++)
+    {
+        tong+=pow(x,i);
+        tong=sqrt(tong);
+    }
+    cout << tong;
+    return 0;*/
+
+
+
+    //bai 41
+    /*float tong = 0;
+    int n ,i =0 ;
+    cin >> n;
+    for(int i =0; i<=n; i++)
+    {
+        tong+=1;
+        tong=1/tong;
+
+    }*/
+    /*
+    float tong=1
+    while (i <= n)
+    {
+        tong=1+1.0/tong;
+        i++;
+    }
+    cout << tong;*/
+
+
+
+    //bai42
+    /*int n;
+    cin >> n;
+    int k = n;
+    while (k>0)
+    {
+        if (Tongk(k) < n)
+            break;
+        k--;
+    }
+    cout << k;*/
+
+    int n;
+    cin >> n;
+    int dem=0;
+    while (n>10)
+        int m = n%10;
+        if( m % 2 !=0 )
+            dem+=1;
+        n =  n / 10;
+    if ((n % 2) !=0)
+        dem+=1;
+    cout << dem;
+}
