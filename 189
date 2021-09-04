@@ -1,0 +1,56 @@
+#include <iostream>
+
+using namespace std;
+void Nhapmang(int *a, int n)
+{
+    for(int i=0; i<n; i++)
+    {
+        cin >> a[i];
+    }
+}
+int checksocochusotoanle(int a)
+{
+        int temp =a;
+        while(temp > 10)
+        {
+            if(( temp%10) % 2 != 0)
+            {
+                temp/=10;
+            }
+            else
+                temp%=10;
+        }
+        if (temp % 2 != 0)
+            {
+                cout << a << endl;
+            }
+}
+ 
+/*int checksocochusotoanle(int a)
+{
+    int temp =a, flag=1;
+    while(temp !=0)
+    {
+        if(( temp%10) % 2 != 0)
+        {
+            temp/=10;
+        }
+        else
+            flag=0;
+            break;
+    }
+    if( flag==1)
+        cout << a << endl;
+}*/
+
+int main()
+{
+    int n;
+    cin >> n;
+    int a[n];
+    Nhapmang(a,n);
+    for(int i=0; i< n; i++)
+    {
+        checksocochusotoanle(a[i]);
+    }
+}
