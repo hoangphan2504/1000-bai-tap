@@ -1,0 +1,60 @@
+#include <iostream>
+
+using namespace std;
+
+void Nhapmang(int *a, int n)
+{
+    for(int i=0; i<n; i++)
+    {
+        cin >> a[i];
+    }
+}
+void sophanbiet(int *a, int *b, int n, int sizearr)
+{
+    int flag=1;
+    b[0]=a[0];
+    for(int i=1; i<n; i++)
+    {
+        int j;
+        for(j=0; j<i; j++)
+        {
+            if(a[j]==a[i])
+            {
+                flag=0;
+                break;
+            }
+
+        }
+        if(flag==1)
+        {
+            b[sizearr]=a[j];
+            sizearr++;
+        }
+    }
+}
+
+void lietke(int *a, int *b, int n, int sizearr)
+{
+
+    for(int j=0; j<= sizearr; j++)
+    {
+        int dem=0;
+        for(int i=0; i< n; i++)
+        {
+            if(a[i]==b[j])
+            {
+                dem++;
+            }
+        }
+        cout << b[j] << " " << dem << endl;
+    }
+}
+int main()
+{
+    int n;
+    cin >> n;
+    int a[n], sophanbiett[n], sizearr=1;
+    Nhapmang(a,n);
+    sophanbiet(a, sophanbiett, n, sizearr);
+    lietke(a, sophanbiett, n, sizearr);
+}
