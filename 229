@@ -1,0 +1,39 @@
+#include <iostream>
+
+using namespace std;
+
+void Nhapmang(int *a, int n)
+{
+    for(int i=0; i<n; i++)
+    {
+        cin >> a[i];
+    }
+}
+int demphanbiet(int *a, int n)
+{
+    int dem=1, flag=1;
+    for(int i=1; i<n; i++)
+    {
+        for(int j=0; j<i; j++)
+        {
+            if(a[j]==a[i])
+            {
+                flag=0;
+                break;
+            }
+
+        }
+        if(flag==1)
+            dem+=1;
+    }
+    return dem;
+}
+int main()
+{
+    int n;
+    cin >> n;
+    int a[n];
+    Nhapmang(a,n);
+    cout << demphanbiet(a,n);
+
+}
