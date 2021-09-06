@@ -1,0 +1,34 @@
+#include <iostream>
+
+using namespace std;
+
+void Nhapmang(int *a, int n)
+{
+    for(int i=0; i<n; i++)
+    {
+        cin >> a[i];
+    }
+}
+
+
+
+int kiemtramangcapsocong(int *a, int n)
+{
+    int capsocong= a[1]-a[0];
+    for(int i=1; i<n-1; i++)
+    {
+        if(a[i+1] - a[i] != capsocong)
+        {
+            return 0;
+        }
+    }
+    return capsocong;
+}
+int main()
+{
+    int n;
+    cin >> n;
+    int a[n];
+    Nhapmang(a, n);
+    cout << kiemtramangcapsocong(a,n);
+}
