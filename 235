@@ -10,36 +10,54 @@ void Nhapmang(int *a, int n)
     }
 }
 
+bool kiemtratrung(int *a, int n, int i)
+{
+    for(int j=0; j<i; j++)
+    {
+        if(a[i]==a[j])
+        {
+            return false;
+        }
+    }
+    return true;
+
+}
 void lietke(int *a, int *b, int na, int nb)
 {
     for(int i=0; i<na; i++)
     {
-        int flag=1;
-        for(int j=0; j<nb; j++)
+        if(kiemtratrung(a, na, i))
         {
-            if(a[i]==b[j])
+            int flag=1;
+            for(int j=0; j<nb; j++)
             {
-                flag=0;
-                break;
+                if(a[i]==b[j])
+                {
+                    flag=0;
+                    break;
+                }
             }
+            if(flag==1)
+                cout << a[i] << " ";
         }
-        if(flag==1)
-            cout << a[i] << " ";
     }
-
+        
     for(int j=0; j<nb; j++)
     {
-        int flag=1;
-        for(int i=0; i<na; i++)
+        if(kiemtratrung(b,nb,j))
         {
-            if(a[i]==b[j])
+            int flag=1;
+            for(int i=0; i<na; i++)
             {
-                flag=0;
-                break;
+                if(a[i]==b[j])
+                {
+                    flag=0;
+                    break;
+                }
             }
+            if(flag==1)
+                cout << b[j] << " ";
         }
-        if(flag==1)
-            cout << b[j] << " ";
     }
 
 }
