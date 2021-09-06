@@ -1,0 +1,55 @@
+#include <iostream>
+
+using namespace std;
+
+void Nhapmang(int *a, int n)
+{
+    for(int i=0; i<n; i++)
+    {
+        cin >> a[i];
+    }
+}
+
+void lietke(int *a, int *b, int na, int nb)
+{
+    for(int i=0; i<na; i++)
+    {
+        int flag=1;
+        for(int j=0; j<nb; j++)
+        {
+            if(a[i]==b[j])
+            {
+                flag=0;
+                break;
+            }
+        }
+        if(flag==1)
+            cout << a[i] << " ";
+    }
+
+    for(int j=0; j<nb; j++)
+    {
+        int flag=1;
+        for(int i=0; i<na; i++)
+        {
+            if(a[i]==b[j])
+            {
+                flag=0;
+                break;
+            }
+        }
+        if(flag==1)
+            cout << b[j] << " ";
+    }
+
+}
+int main()
+{
+    int na, nb;
+    cin >> na >> nb;
+    int a[na], b[nb];
+    Nhapmang(a, na);
+    Nhapmang(b,nb);
+    cout << "So co mot trong hai mang: ";
+    lietke(a, b, na, nb);
+}
