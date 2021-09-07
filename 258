@@ -1,0 +1,68 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+void Nhapmang(float *a, int n)
+{
+    for(int i=0; i<n; i++)
+    {
+        cin >> a[i];
+    }
+}
+
+bool kiemtrasonguyento(int x)
+{
+    if(x<2)
+        return false;
+    else
+    {
+        for(int i = 2; i<= sqrt(x); i++)
+        {
+            if(x % i == 0)
+                return false;
+        }
+    }
+    return true;
+}
+
+void swapnumber(float&a, float &b)
+{
+    float temp = a;
+    a=b;
+    b=temp;
+}
+
+float customsort(float *a, int n)
+{
+        for(int i=0; i<n; i++)
+        {
+            if(kiemtrasonguyento(a[i]))
+            {
+                for( int j=i+1; j<n; j++)
+                {
+                    if(kiemtrasonguyento(a[j]) == true && a[j] < a[i] )
+                    {
+                        swapnumber(a[i], a[j]);
+                    }
+                }
+
+            }
+        }
+}
+
+void Xuatmang(float *a, int n)
+{
+    for(int i=0; i<n; i++)
+    {
+        cout << a[i] << " ";
+    }
+}
+int main()
+{
+    int n;
+    cin >> n;
+    float a[n];
+    Nhapmang(a, n);
+    customsort(a,n);
+    Xuatmang(a,n);
+}
