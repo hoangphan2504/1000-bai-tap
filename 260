@@ -1,0 +1,64 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+void Nhapmang(float *a, int n)
+{
+    for(int i=0; i<n; i++)
+    {
+        cin >> a[i];
+    }
+}
+
+void swapnumber(float&a, float &b)
+{
+    float temp = a;
+    a=b;
+    b=temp;
+}
+
+void tangdan(float*a, int n)
+{
+    for(int i =0; i<n; i++)
+    {
+        for(int j=i+1; j<n; j++)
+        {
+            if(a[i]> a[j])
+            {
+                swapnumber(a[i], a[j]);
+            }
+        }
+    }
+}
+
+void kiemtra(float *a, float *b, int na, int nb)
+{
+    if(na != nb)
+        cout <<"Khong phai";
+    else
+    {
+        tangdan(a,na);
+        tangdan(b,nb);
+        int flag=1;
+        for(int i=0; i<na; i++)
+        {
+            if(a[i]!= b[i])
+                flag=0;
+                break;
+        }
+        if(flag==1)
+            cout << "Phai";
+        else
+            cout<<"Khong phai";
+    }
+}
+
+int main()
+{
+    int na, nb;
+    cin >> na>> nb;
+    float a[na], b[nb];
+    Nhapmang(a, na);
+    Nhapmang(b, nb);
+    kiemtra(a,b,na,nb);
+}
