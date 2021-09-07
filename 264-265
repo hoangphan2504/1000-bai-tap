@@ -1,0 +1,65 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+void Nhapmang(float *a, int n)
+{
+    for(int i=0; i<n; i++)
+    {
+        cin >> a[i];
+    }
+}
+
+void swapnumber(float&a, float &b)
+{
+    float temp = a;
+    a=b;
+    b=temp;
+}
+
+void tangdan(float *a, int n)
+{
+    for(int i=0; i< n; i++)
+    {
+        for(int j=i+1; j<n; j++)
+        {
+            if( a[i]>a[j])
+                swapnumber(a[i],a[j]);
+        }
+    }
+}
+
+void customsort(float *a, float *b, int na, int nb)
+{
+    int nc= na+nb;
+    float c[nc];
+    int z=0;
+    for(int i=0; i<na; i++)
+    {
+        c[z]=a[i];
+        z++;
+    }
+    for(int j=0; j<nb; j++)
+    {
+        c[z]=b[j];
+        z++;
+    }
+    tangdan(c,nc);
+    for(int m=0; m<nc; m++)
+    {
+        cout << c[m]<< " ";
+    }
+}
+
+
+int main()
+{
+    int na, nb;
+    cin >> na >>nb;
+    float a[na];
+    float b[nb];
+    Nhapmang(a, na);
+    Nhapmang(b, nb);
+    customsort(a,b,na,nb);
+
+}
