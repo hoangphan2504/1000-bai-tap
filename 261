@@ -1,0 +1,53 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+void Nhapmang(float *a, int n)
+{
+    for(int i=0; i<n; i++)
+    {
+        cin >> a[i];
+    }
+}
+
+void swapnumber(float&a, float &b)
+{
+    float temp = a;
+    a=b;
+    b=temp;
+}
+
+
+float customsort(float *a, int n)
+{
+    for(int i=0; i<n; i++)
+    {
+        if(a[i] > 0 )
+        {
+            for( int j=i+1; j<n; j++)
+            {
+                if(a[j] > 0 && a[j] < a[i] )
+                {
+                    swapnumber(a[i], a[j]);
+                }
+            }
+        }
+    }
+}
+
+void Xuatmang(float *a, int n)
+{
+    for(int i=0; i<n; i++)
+    {
+        cout << a[i] << " ";
+    }
+}
+int main()
+{
+    int n;
+    cin >> n;
+    float a[n];
+    Nhapmang(a, n);
+    customsort(a,n);
+    Xuatmang(a,n);
+}
