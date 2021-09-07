@@ -26,7 +26,7 @@ void Nhapmang(int *a, int n)
         }
     }
 }
-int vitrik(int*a, int n, int x)
+int vitrik(int*a, int &n, int x)
 {
     int k;
     for(int i=0; i<n; i++)
