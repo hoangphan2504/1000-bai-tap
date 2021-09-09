@@ -1,0 +1,62 @@
+
+#include <iostream>
+
+using namespace std;
+
+void NhapMang(int *a, int n)
+{
+    for(int i=0; i<n; i++)
+    {
+        cin >> a[i];
+    }
+}
+
+void HoanVi(int &a, int &b)
+{
+    int temp=a;
+    a=b;
+    b=temp;
+}
+
+void DaoNguocThuTuCacSoChanLe(int *a, int n)
+{
+    int i, j;
+    for(i = 0; i < n; i++)
+    {
+        for(j = i + 1; j < n; j++)
+        {
+            if(a[i] % 2 == 0 && a[j] % 2 == 0)
+            {
+                HoanVi(a[i], a[j]);
+            }
+            else if(a[i] % 2 != 0 && a[j] % 2 != 0)
+            {
+                HoanVi(a[i], a[j]);
+            }
+        }
+    }
+
+}
+
+
+
+void XuatMang(int *a, int n)
+{
+    for(int i=0; i<n; i++)
+    {
+        cout << a[i] << " ";
+    }
+}
+
+/*
+
+*/
+int main()
+{
+    int n;
+    cin >> n;
+    int a[n];
+    NhapMang(a, n);
+    DaoNguocThuTuCacSoChanLe(a,n);
+    XuatMang(a,n);
+}
