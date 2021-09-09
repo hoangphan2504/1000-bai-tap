@@ -1,0 +1,56 @@
+
+#include <iostream>
+
+using namespace std;
+
+void NhapMang(int *a, int n)
+{
+    for(int i=0; i<n; i++)
+    {
+        cin >> a[i];
+    }
+}
+
+void MaxMin(int *a, int n, int &Max, int &Min)
+{
+    Max=a[0];
+    Min=a[0];
+    for(int i=1; i<n; i++)
+    {
+        if(a[i]>Max)
+            Max=a[i];
+        if(a[i]<Min)
+            Min=a[i];
+    }
+}
+
+void Doicho(int *a, int n, int Max, int Min)
+{
+    for(int i=0; i<n; i++)
+    {
+        if(a[i]==Max)
+            a[i]=Min;
+        else if(a[i]==Min)
+            a[i]=Max;
+    }
+}
+void XuatMang(int *a, int n)
+{
+    for(int i=0; i<n; i++)
+    {
+        cout << a[i] << " ";
+    }
+    cout << endl;
+}
+
+int main()
+{
+    int n, Max, Min;
+    cin >> n;
+    int a[n];
+    NhapMang(a, n);
+    XuatMang(a,n);
+    MaxMin(a, n, Max, Min);
+    Doicho(a, n, Max, Min);
+    XuatMang(a,n);
+}
