@@ -1,0 +1,70 @@
+#include <iostream>
+
+using namespace std;
+
+void NhapMang(int *a, int n)
+{
+    for(int i=0; i<n; i++)
+    {
+        cin >> a[i];
+    }
+}
+
+void ChuyenVeDau(int*a, int n, int index1)
+{
+    int temp=a[index1];
+    for(int i=index1; i>0; i--)
+    {
+        a[i]=a[i-1];
+    }
+    a[0]=temp;
+
+}
+void ChuyenVeCuoi(int*a, int n, int index1)
+{
+    int temp=a[index1];
+    for(int i=index1; i<n-1; i++)
+    {
+        a[i]=a[i+1];
+    }
+    a[n - 1]=temp;
+    index1--;
+
+
+}
+void ChuyenSo1VeDauMang(int *a, int n)
+{
+
+    for(int i=0; i<n; i++)
+    {
+        if(a[i] != 0)
+        {
+            if(a[i] % 2 == 0)
+            {
+                ChuyenVeDau(a,n,i);
+
+            }
+            else
+            {
+                ChuyenVeCuoi(a,n,i);
+            }
+        }
+    }
+}
+
+void XuatMang(int *a, int n)
+{
+    for(int i=0; i<n; i++)
+    {
+        cout << a[i] << " ";
+    }
+}
+int main()
+{
+    int n;
+    cin >> n;
+    int a[n];
+    NhapMang(a, n);
+    ChuyenSo1VeDauMang(a,n);
+    XuatMang(a,n);
+}
