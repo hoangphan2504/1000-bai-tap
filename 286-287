@@ -1,0 +1,63 @@
+#include <iostream>
+
+using namespace std;
+
+void NhapMang(int *a, int n)
+{
+    for(int i=0; i<n; i++)
+    {
+        cin >> a[i];
+    }
+}
+
+void HoanVi(int &a, int &b)
+{
+    int temp=a;
+    a=b;
+    b=temp;
+}
+
+/*void DichTraixoayvong(int *a, int n)
+{
+    int temp=a[0];
+    for(int i = 0; i < n - 1; i++)
+    {
+        a[i]=a[i+1];
+    }
+    a[n-1]=temp;
+}*/
+
+void DichPhaixoayvong(int *a, int n, int k)
+{
+    while(k--)
+    {
+        int temp=a[n-1];
+        for(int i = n-1; i >0; i--)
+        {
+            a[i]=a[i-1];
+        }
+        a[0]=temp;
+    }
+
+}
+
+void XuatMang(int *a, int n)
+{
+    for(int i=0; i<n; i++)
+    {
+        cout << a[i] << " ";
+    }
+}
+
+/*
+
+*/
+int main()
+{
+    int n, k;
+    cin >> n >> k;
+    int a[n];
+    NhapMang(a, n);
+    DichPhaixoayvong(a,n,k);
+    XuatMang(a,n);
+}
