@@ -1,0 +1,47 @@
+#include <iostream>
+
+using namespace std;
+
+void NhapMang(int *a, int n)
+{
+    for(int i=0; i<n; i++)
+    {
+        cin >> a[i];
+    }
+}
+
+int XuatMangCon(int *a, int *b, int na, int nb)
+{
+    int ChieuDai, dem=0;
+    for(int i = 0; i < nb; i++)
+    {
+        int index=0, flag=1;
+        for(ChieuDai = i+1; ChieuDai < nb; ChieuDai++)
+        {
+            if((ChieuDai-i+1)==na && b[i]==a[index])
+            {
+                for(int j = i; j <=ChieuDai; j++)
+                {
+                    if(b[j]!=a[index++])
+                    {
+                        flag=0;
+                        break;
+                    }
+                }
+                if(flag==1)
+                    dem++;
+            }
+        }
+    }
+    return dem;
+}
+
+int main()
+{
+    int nb, na;
+    cin >> nb >> na;
+    int a[na], b[nb];
+    NhapMang(b, nb);
+    NhapMang(a, na);
+    cout << XuatMangCon(a, b,na, nb);
+}
