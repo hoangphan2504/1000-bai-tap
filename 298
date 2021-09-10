@@ -1,0 +1,73 @@
+#include <iostream>
+
+using namespace std;
+
+void NhapMang(int *a, int n)
+{
+    for(int i=0; i<n; i++)
+    {
+        cin >> a[i];
+    }
+}
+
+bool KiemTraTangDan(int *a, int index, int ChieuDai)
+{
+    for(int i=index; i<ChieuDai; i++)
+    {
+        if(a[i]>a[i+1])
+            return false;
+    }
+    return true;
+}
+
+int SoLonNhat(int*a, int n)
+{
+    int Max=a[0];
+    for(int i= 1; i<n; i++)
+    {
+        if(a[i]>Max)
+        {
+            Max=a[i];
+        }
+    }
+    return Max;
+}
+
+bool KiemTraToanDuong(int *a,int n, int index, int ChieuDai)
+{
+    int M=SoLonNhat(a,n);
+    for(int i=index; i<=ChieuDai; i++)
+    {
+        if(a[i]<0)
+            return false;
+    }
+    return true;
+}
+
+void XuatMangCon(int *a, int n)
+{
+    int ChieuDai;
+    for(int i = 0; i < n; i++)
+    {
+        for(ChieuDai = i+1; ChieuDai < n; ChieuDai++)
+        {
+            if(KiemTraTangDan(a,i,ChieuDai)==true && KiemTraToanDuong(a,n,i,ChieuDai) == true )
+            {
+                for(int j = i; j <=ChieuDai; j++)
+                {
+                    cout << a[j] << " ";
+                }
+                cout << endl;
+            }
+        }
+    }
+}
+
+int main()
+{
+    int n;
+    cin >> n;
+    int a[n];
+    NhapMang(a, n);
+    XuatMangCon(a,n);
+}
