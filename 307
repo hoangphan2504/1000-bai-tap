@@ -1,0 +1,43 @@
+#include <iostream>
+
+using namespace std;
+
+void NhapMang(int *a, int n)
+{
+    for(int i=0; i<n; i++)
+    {
+        cin >> a[i];
+    }
+}
+
+void MangbTuManga(int *a, int *b, int na, int &nb)
+{
+    for(int i=0; i<na; i++)
+    {
+        if(a[i] % 2 !=0)
+        {
+            b[nb-1]=a[i];
+            nb++;
+        }
+    }
+    nb--;
+}
+
+void XuatMang(int *a, int n)
+{
+    for(int i=0; i<n; i++)
+    {
+        cout << a[i] << " ";
+    }
+}
+int main()
+{
+    int na,nb=1;
+    cin >> na;
+    int a[na], b[nb];
+    NhapMang(a, na);
+    MangbTuManga(a, b, na, nb);
+    XuatMang(a,na);
+    cout << endl;
+    XuatMang(b,nb);
+}
