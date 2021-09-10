@@ -1,6 +1,4 @@
-
 #include <iostream>
-
 
 using namespace std;
 
@@ -12,9 +10,9 @@ void NhapMang(int *a, int n)
     }
 }
 
-bool KiemTraTangDan(int *a, int index, int nb)
+bool KiemTraTangDan(int *a, int index, int ChieuDai)
 {
-    for(int i=index; i<nb; i++)
+    for(int i=index; i<ChieuDai; i++)
     {
         if(a[i]>a[i+1])
             return false;
@@ -35,10 +33,10 @@ int SoLonNhat(int*a, int n)
     return Max;
 }
 
-bool KiemTraCoSoLonNhat(int *a,int n, int index, int nb)
+bool KiemTraCoSoLonNhat(int *a,int n, int index, int ChieuDai)
 {
     int M=SoLonNhat(a,n);
-    for(int i=index; i<nb; i++)
+    for(int i=index; i<=ChieuDai; i++) //nhớ có dấu =
     {
         if(a[i] == M)
             return true;
@@ -53,16 +51,13 @@ void XuatMangCon(int *a, int n)
     {
         for(ChieuDai = i+1; ChieuDai < n; ChieuDai++)
         {
-            if(KiemTraTangDan(a,i,ChieuDai)==true)
+            if(KiemTraTangDan(a,i,ChieuDai)==true && KiemTraCoSoLonNhat(a,n,i,ChieuDai) == true )
             {
-                if(KiemTraCoSoLonNhat(a,n,i,ChieuDai)==true)
+                for(int j = i; j <=ChieuDai; j++)
                 {
-                    for(int j = i; j <=ChieuDai; j++)
-                    {
-                        cout << a[j] << " ";
-                    }
+                    cout << a[j] << " ";
                 }
-
+                cout << endl;
             }
         }
     }
