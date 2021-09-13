@@ -1,0 +1,54 @@
+#include <iostream>
+
+using namespace std;
+
+void NhapMang(float arr[][100], int &row, int &col)
+{
+    for(int i=0; i<row; i++)
+    {
+        for(int j=0; j<col; j++)
+        {
+            cin >> arr[i][j];
+        }
+    }
+}
+
+
+int TichGiaTriTrenMotCot(float a[][100], int row, int col)
+{
+    for(int i=0; i<col; i++)
+    {
+        int tich=1;
+        for(int j=0; j<row; j++)
+        {
+            if(a[j][i] > 0)
+            {
+                tich*=a[j][i];
+            }
+        }
+        cout << tich << endl;
+    }
+}
+
+void XuatMang(float arr[][100], int row, int col)
+{
+    for(int i=0; i<row; i++)
+    {
+        for(int j=0; j<col; j++)
+        {
+            cout << arr[i][j] << " ";
+        }
+        cout << endl;
+    }
+}
+
+int main()
+{
+    int row, col;
+    cin >> row >> col;
+    float arr[100][100];
+    NhapMang(arr, row, col);
+    XuatMang(arr, row, col);
+    TichGiaTriTrenMotCot(arr, row,col);
+    //XuatMang(arr, row, col);
+}
