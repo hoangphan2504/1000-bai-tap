@@ -1,0 +1,86 @@
+#include <iostream>
+
+using namespace std;
+
+void NhapMang(float arr[][100], int &row, int &col)
+{
+    for(int i=0; i<row; i++)
+    {
+        for(int j=0; j<col; j++)
+        {
+            cin >> arr[i][j];
+        }
+    }
+}
+
+void SwapNumber(float &a, float &b)
+{
+    float temp;
+    temp=a;
+    a=b;
+    b=temp;
+}
+
+void SapXepTangDan(float a[][100], int row, int col)
+{
+
+    for(int i=0; i<row; i++)
+    {
+        for(int j=0; j<col; j++)
+        {
+            int Minrow=i, Mincol=j;
+            int m, n;
+            for(m=i; m<row; m++)
+            {
+                for(n=j+1; n<col; n++)
+                {
+                    if(a[m][n] < a[Minrow][Mincol])
+                    {
+                        Minrow=m;
+                        Mincol=n;
+                    }
+                }
+            }
+            SwapNumber(a[i][j], a[Minrow][Mincol]);
+        }
+    }
+    
+    /*
+    int n = row * col;
+    for(int i = 0; i < n - 1; i++)
+    {
+        for(int j = i + 1; j < n; j++)
+        {
+            cout << i / col << " " << i % col<< endl << j / col << " "<< j % col << endl;
+            if(a[i / col][i % col] > a[j / col][j % col])
+            {
+                
+
+                SwapNumber(a[i / col][i % col], a[j / col][j % col]);
+            }
+        }
+    }
+    */
+}
+
+void XuatMang(float arr[][100], int row, int col)
+{
+    for(int i=0; i<row; i++)
+    {
+        for(int j=0; j<col; j++)
+        {
+            cout << arr[i][j] << " ";
+        }
+        cout << endl;
+    }
+}
+
+int main()
+{
+    int row, col;
+    cin >> row >> col;
+    float arr[100][100];
+    NhapMang(arr, row, col);
+    SapXepTangDan(arr, row, col);
+    XuatMang(arr, row, col);
+}
