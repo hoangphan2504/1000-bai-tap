@@ -1,0 +1,79 @@
+#include <iostream>
+
+using namespace std;
+
+void NhapMang(int arr[][100], int &row, int &col)
+{
+    for(int i=0; i<row; i++)
+    {
+        for(int j=0; j<col; j++)
+        {
+            cin >> arr[i][j];
+        }
+    }
+}
+
+int KiemTraSoCucTri(int arr[][100], int row, int col, int indexi, int indexj)
+{
+  bool CucDai = true, CucTieu = true;
+  for(int i=-1; i<=1; i++)
+  {
+    for(int j=-1; j<=1; j++)
+    {
+      if(indexi + i >=0 && indexj + j >=0 && !(i == 0 && j == 0) && indexi + i < row && indexj +j < col)
+      {
+        if(arr[indexi][indexj] < arr[indexi + i][indexj + j])
+        {
+          CucDai = false;
+        }
+        if (arr[indexi][indexj] > arr[indexi + i][indexj + j])
+        {
+          CucTieu = false;
+        }
+          if(!CucDai && !CucTieu) break;
+      }
+    }
+  }
+  if(!CucDai && !CucTieu) return false;
+  return true;
+}
+
+void SoLuong(int arr[][100], int row, int col)
+{
+  int dem = 0;
+  for(int i=0; i<row; i++)
+  {
+    for(int j=0; j<col; j++)
+    {
+      if(KiemTraSoCucTri(arr,row, col, i, j))
+        {
+          cout << arr[i][j] << endl;
+          dem++;
+        }
+    }
+  }
+  cout << "So Phan Tu Cuc Dai: " << dem;
+}
+
+void XuatMang(int arr[][100], int row, int col)
+{
+    for(int i=0; i<row; i++)
+    {
+        for(int j=0; j<col; j++)
+        {
+            cout << arr[i][j] << " ";
+        }
+        cout << endl;
+    }
+}
+
+int main()
+{
+    int row, col, n;
+    cin >> row >> col;
+    int arr[100][100];
+    NhapMang(arr, row, col);
+    XuatMang(arr, row, col);
+    SoLuong(arr,row, col);
+    
+}
