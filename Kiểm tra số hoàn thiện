@@ -1,0 +1,14 @@
+bool KiemTraSoHoanThien(int x)
+{
+  int tong=0;
+  for(int i=0; i<x; i++)
+  {
+    if(x % i == 0)
+    {
+      tong+=i;
+    }
+  }
+  if(tong==x)
+    return true;
+  return false;
+}
