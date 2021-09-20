@@ -1,0 +1,70 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+void NhapMang(int arr[][100], int &row, int &col)
+{
+    cout << "Nhap Mang: " << endl;
+    for(int i=0; i<row; i++)
+    {
+        for(int j=0; j<col; j++)
+        {
+            cin >> arr[i][j];
+        }
+    }
+}
+
+void XuatMang(int arr[][100], int row, int col)
+{
+    cout <<"Mang: " << endl;
+    for(int i=0; i<row; i++)
+    {
+        for(int j=0; j<col; j++)
+        {
+            cout << arr[i][j] << " ";
+        }
+        cout << endl;
+    }
+}
+
+int GiaTriNhoNhat(int arr[][100], int row, int col)
+{
+  int Min=arr[0][0];
+  for(int i=0; i<row; i++)
+  {
+    for(int j=0; j<col; j++)
+    {
+      if(arr[i][j] < Min)
+        Min=arr[i][j];
+    }
+  }
+  return Min;
+}
+
+int Dem(int arr[][100], int row, int col)
+{
+  int Min=GiaTriNhoNhat(arr, row, col);
+  int dem=0;
+  for(int i=0; i<row; i++)
+  {
+    for(int j=0; j<col; j++)
+    {
+      if(arr[i][j] == Min)
+        dem++;
+    }
+  }
+  return dem;
+}
+
+int main()
+{
+    int row, col;
+    cout << "Nhap so dong: ";
+    cin >> row ;
+    cout << "Nhap so cot: ";
+    cin >> col;
+    int arr[100][100];
+    NhapMang(arr, row, col);
+    XuatMang(arr, row, col);
+    cout << Dem(arr, row, col);
+}
