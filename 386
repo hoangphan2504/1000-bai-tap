@@ -1,0 +1,78 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+void NhapMang(int arr[][100], int &row, int &col)
+{
+    for(int i=0; i<row; i++)
+    {
+        for(int j=0; j<col; j++)
+        {
+            cin >> arr[i][j];
+        }
+    }
+}
+
+void XuatMang(int arr[][100], int row, int col)
+{
+    for(int i=0; i<row; i++)
+    {
+        for(int j=0; j<col; j++)
+        {
+            cout << arr[i][j] << " ";
+        }
+        cout << endl;
+    }
+}
+
+int TinhTong(int arr[], int col)
+{
+  int tong=0;
+  for(int i=0; i<col; i++)
+  {
+    tong+=arr[i];
+  }
+  return tong;
+}
+
+void LietKe(int arr[][100], int row, int col)
+{
+  int b[100]={0};
+  for(int i=0; i<col; i++)
+  {
+    for(int j=0; j<row; j++)
+    {
+      b[i]+= arr[j][i];
+    }
+  }
+
+  int Min=b[0];
+
+  for(int i=0; i<col; i++)
+  {
+    if(b[i] > Min)
+      Min=b[i];
+  }
+
+  for(int i=0; i<col; i++)
+  {
+    if(b[i] == Min)
+      cout << i << " ";
+  }
+}
+
+int main()
+{
+    int row, col;
+    cout << "Nhap so dong: ";
+    cin >> row ;
+    cout << "Nhap so cot: ";
+    cin >> col;
+    int arr[100][100];
+    cout << "Nhap Mang: " << endl;
+    NhapMang(arr, row, col);
+    cout <<"Mang: " << endl;
+    XuatMang(arr, row, col);
+    cout << "Dong co tong lon nhat: ";
+    LietKe(arr, row, col);
+}
