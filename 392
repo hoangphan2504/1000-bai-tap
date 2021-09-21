@@ -1,0 +1,60 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+void NhapMang(int arr[][100], int &row, int &col)
+{
+    for(int i=0; i<row; i++)
+    {
+        for(int j=0; j<col; j++)
+        {
+            cin >> arr[i][j];
+        }
+    }
+}
+
+void XuatMang(int arr[][100], int row, int col)
+{
+    for(int i=0; i<row; i++)
+    {
+        for(int j=0; j<col; j++)
+        {
+            cout << arr[i][j] << " ";
+        }
+        cout << endl;
+    }
+}
+
+void Swapnumber(int &a, int &b)
+{
+  int temp=a;
+  a=b;
+  b=temp;
+}
+
+void HoanViHaiDong(int arr[][100], int row, int col, int n, int m)
+{
+  for(int j=0; j<col; j++)
+  {
+    Swapnumber(arr[n][j], arr[m][j]);
+  }
+}
+
+int main()
+{
+    int row, col, n, m;
+    cout << "Nhap so dong: ";
+    cin >> row ;
+    cout << "Nhap so cot: ";
+    cin >> col;
+    int arr[100][100];
+    cout << "Nhap Mang: " << endl;
+    NhapMang(arr, row, col);
+    cout <<"Mang: " << endl;
+    XuatMang(arr, row, col);
+    cout << "Nhap 2 dong can hoan vi: " << endl;
+    cin >> n >> m;
+    cout << "Mang sau khi hoan vi: " << endl;
+    HoanViHaiDong(arr, row, col, n, m);
+    XuatMang(arr, row, col);
+}
