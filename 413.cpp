@@ -25,8 +25,6 @@ void XuatMang(int arr[][100], int row, int col)
     }
 }
 
-
-
 void SwapNumber(int &a, int &b)
 {
   int temp=a;
@@ -37,28 +35,28 @@ void SwapNumber(int &a, int &b)
 void SapXep(int arr[][100], int row, int col)
 {
   for(int i = 0; i < row; i++)
+  {
+    for(int j = 0; j < col - 1; j++)
     {
-        for(int j = 0; j < col - 1; j++)
+      for(int k = j + 1; k < col; k++)
+      {
+        if(i % 2 == 0)
         {
-            for(int k = j + 1; k < col; k++)
-            {
-                if(i % 2 == 0)
-                {
-                    if (a[i][j] > a[i][k])      
-                    {
-                        SwapNumber(a[i][j], a[i][k]);
-                    }
-                }
-                else
-                {
-                    if (a[i][j] < a[i][k])      
-                    {
-                        SwapNumber(a[i][j], a[i][k]);
-                    }
-                }
-            }
+          if (arr[i][j] > arr[i][k])      
+          {
+            SwapNumber(arr[i][j], arr[i][k]);
+          }
         }
+        else
+        {
+          if (arr[i][j] < arr[i][k])      
+          {
+            SwapNumber(arr[i][j], arr[i][k]);
+          }
+        }
+      }
     }
+  }
 }
 
 int main()
