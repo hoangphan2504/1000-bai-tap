@@ -34,47 +34,31 @@ void SwapNumber(int &a, int &b)
   b=temp;
 }
 
-void Ascending(int a[], int col)
-{
-  for(int i=0; i<col-1; i++)
-  {
-    for(int j=i+1; j<col; j++)
-    {
-      if(a[j] < a[i])
-        SwapNumber(a[i], a[j]);
-    }
-  }
-}
-
-void Decending(int a[], int col)
-{
-  for(int i=0; i<col-1; i++)
-  {
-    for(int j=i+1; j<col; j++)
-    {
-      if(a[j] > a[i])
-        SwapNumber(a[i], a[j]);
-    }
-  }
-}
-
 void SapXep(int arr[][100], int row, int col)
 {
-  for(int i=0; i<row; i++)
-  {
-    if(i % 2 == 0)
+  for(int i = 0; i < row; i++)
     {
-      Ascending(arr[i], col);
-      cout << i << " "<< "Chan" << endl;
+        for(int j = 0; j < col - 1; j++)
+        {
+            for(int k = j + 1; k < col; k++)
+            {
+                if(i % 2 == 0)
+                {
+                    if (a[i][j] > a[i][k])      
+                    {
+                        SwapNumber(a[i][j], a[i][k]);
+                    }
+                }
+                else
+                {
+                    if (a[i][j] < a[i][k])      
+                    {
+                        SwapNumber(a[i][j], a[i][k]);
+                    }
+                }
+            }
+        }
     }
-    else
-    {
-      Decending(arr[i], col);
-      cout << i << " "<< "Le" << endl;
-    }
-    XuatMang(arr, row, col);
-    cout << endl;
-  }
 }
 
 int main()
